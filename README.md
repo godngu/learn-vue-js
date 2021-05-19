@@ -114,7 +114,11 @@ new Vue({
 - [Understanding the “this” Keyword in JavaScript](https://betterprogramming.pub/understanding-the-this-keyword-in-javascript-cb76d4c7c5e8)
 
 
-
+### 컴포넌트 통신 방법 - 응용
+- 같은 레벨의 컴포넌트끼리 데이터 통신 방법
+    - 목표: AppContent -> AppHeader
+    - 방법: AppContent(`event`) -> Root -> AppHeader(`props`) 순서로 데이터를 이동시킨다.
+        - `this.$emit('pass')` -> `num` -> `props['propsdata']`
 
 
 
