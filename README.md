@@ -398,6 +398,43 @@ $ npm run serve
 
 
 
+### 싱글 파일 컴포넌트
+- `<template></template>` 안에는 **한 개**의 element만 존재해야 한다.
+```html
+<!-- div가 두 개라 안됨 -->
+<template>
+    <div></div>
+    <div></div>
+</template>
+```
+
+#### vue파일에 data 선언시 함수 형태로 만들고 return을 해야 한다.
+```html
+<script>
+// vue cli 이전 버전
+// data: {
+// }
+
+export default {
+  data: function() {
+    return {
+      str: 'hello'
+    }
+  }
+}
+</script>
+```
+
+#### vue 파일 생성시 반드시 두 단어 이상으로 조합해야 한다.
+- 한 단어로 표시할 경우 html 표준태그와 충돌날 수 있다.
+
+##### 정상
+- AppHeader.vue
+
+##### 잘못됨 
+- Main.vue
+
+
 
 
 
@@ -456,7 +493,7 @@ $ npm run serve
 ```
 ---
 
-##### vue 파일 템플릿 자동완성
+##### vue SFC(Single File Component) 자동완성
 입력
 - `vue`  
 
