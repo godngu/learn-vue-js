@@ -122,11 +122,113 @@ new Vue({
 
 
 
+### Router
+- [https://router.vuejs.org/kr/installation.html](https://router.vuejs.org/kr/installation.html)
+- 해당 페이지마다 보여질 컴포넌트를 등록한다.
+
+##### CDN 방식
+`<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>`
+
+#### router-view
+```html
+<div id="app">
+    <router-view></router-view>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script>
+    var LoginComponent = {
+        template: '<div>login</div>'
+    }
+    var MainComponent = {
+        template: '<div>main</div>'
+    }
+
+    var router = new VueRouter({
+        mode: 'history' // url에서 해쉬값(#)을 없앤다.
+
+        // 페이지의 라우팅 정보
+        // 페이지의 개수만큼 객체의 개수가 필요하다.
+        routes: [
+            {
+                path: '/login',             // 페이지의 url 이름
+                component: LoginComponent   // 해당 url에서 표시될 컴포넌트
+            },
+            {
+                path: '/main',
+                component: MainComponent
+            }
+        ]
+    });
+
+    new Vue({
+        el: '#app',
+        router: router
+    });
+</script>
+```
+
+#### router-link
+- href가 선언된 링크가 생성된다.
+`<router-link to="이동할 url"></router-link>`
+```html
+<div>
+    <router-link to="/login">Login</router-link>
+    <router-link to="/main">Main</router-link>
+</div>
+```
 
 
 
 
 
 
+### VS Code에서 사용하는 Vue.js 자동완성 팁
+##### 기본 html 포맷 생성
+입력 
+    `! + tab`
+결과
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+```
+---
 
+##### id가 포함된 html element 생성
+입력
+`div#app`
+결과
+```html
+<div id="app"></div>
+```
+---
 
+##### javascript src
+입력
+`script:src`
+결과
+```html
+<script src=""></script>
+```
+---
+
+##### html태그 중복 생성
+입력
+`div*3`
+결과
+```html
+<div></div>
+<div></div>
+<div></div>
+```
