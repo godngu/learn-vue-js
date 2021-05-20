@@ -294,7 +294,73 @@ new Vue({
 <input type="text" v-on:keyup.enter="logText">
 ```
 
+#### watch vs computed
 
+##### watch(newValue, oldValue)
+- 데이터의 변화에 따라서 특정 로직을 실행할 수 있다.
+- 매번 실행되기 부담스러운 로직에 사용
+
+##### computed
+- validation에 활용
+- 간단한 텍스트 변경, 연산시 사용
+
+###### 팁
+- watch 보다는 computed를 활용하라.
+
+##### computed 활용 - data 값에 따라 class 변경
+
+###### data 속성 활용
+```html
+<style>
+    .warning {
+        color: red;
+    }
+</style>
+
+<div id="app">
+    // isError 값을 바인딩하여 class값을 변경한다.
+    <p v-bind:class="{ warning: isError }">Hello</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isError: false
+        }
+    });
+</script>/
+```
+
+###### computed 속성 활용
+- 더 명확한 의미를 전달할 수 있다.
+```html
+<style>
+    .warning {
+        color: red;
+    }
+</style>
+
+<div id="app">
+    <p v-bind:class="{errorTextColor}">Hello</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isError: false
+        },
+        computed: {
+            errorTextColor: function() {
+                return this.isError ? 'warning' : null;
+            }
+        }
+    });
+</script>
+```
 
 
 
