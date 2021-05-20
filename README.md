@@ -223,6 +223,71 @@ new Vue({
 
 ```
 
+### 템플릿 문법
+
+#### 데이터 바인딩
+- `{{ message }}`
+- `computed`속성
+```html
+<div id="app">
+    <p>{{ num }}</p>
+    <p>{{ doubleNum }}</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            num: 10
+        },
+        computed: {
+            doubleNum: function() {
+                return this.num * 2;
+            }
+        }
+    });
+</script>
+```
+
+
+#### 디렉티브
+- `v-`로 붙는 속성
+- 속성 바인딩, if-else 예제
+- `v-show` 
+    - `display:none` 상태로 만든다.
+```html
+<div id="app">
+    <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
+    <div v-if="loading">
+        Loading...
+    </div>
+    <div v-else>
+        test user has been logged in
+    </div>
+    <div v-show="loading">
+        Loading...
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            num: 10,
+            uuid: 'abc1234',
+            name: 'text-blue',
+            loading: true
+        }
+    });
+</script>
+```
+##### input 바인딩
+```html
+<input type="text" v-model="message" placeholder="input me">
+<p>{{ message }}</p>
+```
 
 
 
