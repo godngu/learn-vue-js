@@ -362,10 +362,39 @@ new Vue({
 </script>
 ```
 
+### Vue CLI
+
+- [Vue CLI Installation](https://cli.vuejs.org/guide/installation.html)
+
+```bash
+npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
+```
+
+#### NPM Global Libraries 위치
+`/usr/local/lib/node`
+or
+`/usr/local/lib/node_modules`
 
 
+#### Vue CLI 버전별 명령어 차이
 
+##### Vue CLI 2.x
+```text
+vue init '프로젝트 템플릿 유형' '프로젝트 폴더 위치'
+vue init webpack-simple '프로젝트 폴더 위치'
+```
 
+##### Vue CLI 3.x
+```text
+vue create '프로젝트 폴더 위치'
+```
+
+#### 실행
+```bash
+$ npm run serve
+```
 
 
 
@@ -377,7 +406,8 @@ new Vue({
 ### VS Code에서 사용하는 Vue.js 자동완성 팁
 ##### 기본 html 포맷 생성
 입력 
-    `! + tab`
+- `! + tab`
+
 결과
 ```html
 <!DOCTYPE html>
@@ -406,7 +436,8 @@ new Vue({
 
 ##### javascript src
 입력
-`script:src`
+- `script:src`
+
 결과
 ```html
 <script src=""></script>
@@ -415,10 +446,33 @@ new Vue({
 
 ##### html태그 중복 생성
 입력
-`div*3`
+- `div*3`
+
 결과
 ```html
 <div></div>
 <div></div>
 <div></div>
+```
+---
+
+##### vue 파일 템플릿 자동완성
+입력
+- `vue`  
+
+결과
+```html
+<template>
+  
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+</style>
 ```
