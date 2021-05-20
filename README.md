@@ -289,6 +289,11 @@ new Vue({
 <p>{{ message }}</p>
 ```
 
+##### input에서 사용자 키보드 입력 후 enter 누를때 바인딩
+```html
+<input type="text" v-on:keyup.enter="logText">
+```
+
 
 
 
