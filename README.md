@@ -126,8 +126,10 @@ new Vue({
 - [https://router.vuejs.org/kr/installation.html](https://router.vuejs.org/kr/installation.html)
 - 해당 페이지마다 보여질 컴포넌트를 등록한다.
 
-##### CDN 방식
-`<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>`
+#### CDN 방식
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+```
 
 #### router-view
 ```html
@@ -171,13 +173,65 @@ new Vue({
 
 #### router-link
 - href가 선언된 링크가 생성된다.
-`<router-link to="이동할 url"></router-link>`
+```html
+<router-link to="이동할 url"></router-link>
+```
+
 ```html
 <div>
     <router-link to="/login">Login</router-link>
     <router-link to="/main">Main</router-link>
 </div>
 ```
+
+
+### http 통신 라이브러리 - axios
+- [axios github](https://github.com/axios/axios)
+- jquery ajax와 유사하다.
+- 비동기 통신
+- 테스트 데이터: [jsonplaceholder](https://jsonplaceholder.typicode.com/)
+
+#### CDN 방식
+```html
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+```
+#### 데이터 조회 예제
+```html
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            users: []
+        },
+        methods: {
+            var vm = this;
+            getData: function() {
+                axios.get('https://jsonplaceholder.typicode.com/users')
+                .then(function(response) {
+                    console.log(response);
+                    // 이곳에서 this.users를 하면 data를 바라보지 않는다.(실행 context가 다름)
+                    // 따라서 함수 호출 전 vm으로 this를 담아서 사용하면 data.users에 접근이 가능하다.
+                    vm.users = response.data;
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+            }
+        }
+    });
+</script>
+
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
