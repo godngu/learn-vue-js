@@ -435,6 +435,46 @@ export default {
 - Main.vue
 
 
+### 사용자 입력 폼 만들기
+#### form submit 동작 관리
+##### submit event 바인딩 및 새로고침 방지(일반 javascript 방식)
+```html
+<template>
+    <!-- form submit 이벤트 바인딩 -->
+    <form v-on:submit="submitForm"></form>
+</template>
+
+<script>
+    import axios from 'axios';
+    
+    export default {
+        methods: {
+            submitForm: function(event) {
+                // 새로고침 방지
+                event.preventDefault();
+            }
+        }
+    }
+</script>
+```
+
+##### submit event 바인딩 및 새로고침 방지(일반 javascript 방식)
+```html
+<template>
+    <!-- form submit 이벤트 바인딩 -->
+    <form v-on:submit.prevent="submitForm"></form>
+</template>
+```
+
+#### axios를 이용한 데이터 전송
+##### axios 설치
+```bash
+$ npm i axios
+```
+##### lib import
+```html
+import axios from 'axios';
+```
 
 
 
